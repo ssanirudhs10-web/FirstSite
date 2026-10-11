@@ -167,13 +167,14 @@ h1 {
     white-space: nowrap;
     border-right: 4px solid #8b5cf6;
     width: 0;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    box-sizing: content-box;
+    box-sizing: border-box;
+    font-size: clamp(18px, 5vw, 42px);
     animation: typing 3s steps(18) forwards,
                blink 0.7s step-end infinite;
 }
-
 @keyframes typing {
     from { width: 0; }
     to { width: 18ch; }

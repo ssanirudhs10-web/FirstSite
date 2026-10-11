@@ -1,0 +1,56 @@
+function showMessage() {
+    const button = document.querySelector("#messageButton");
+
+    if (button.textContent === "Click ME!") {
+        button.textContent = "You clicked me!";
+        button.style.backgroundColor = "#16a34a";
+    } else {
+        button.textContent = "Click ME!";
+        button.style.backgroundColor = "#6d28d9";
+    }
+}
+window.onload = function() {
+    alert("Welcome to my website! 🚀");
+};
+function updateClock() {
+    const clock = document.getElementById("clock");
+    clock.textContent = new Date().toLocaleTimeString();
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+function toggleMusic() {
+    const music = document.getElementById("backgroundMusic");
+    const button = document.querySelector('button[onclick="toggleMusic()"]');
+
+    if (music.paused) {
+        music.play().then(() => {
+            button.textContent = "⏸ Pause Music";
+        }).catch(() => {
+            alert("Music couldn't load, bro! Check your internet connection and try again.");
+        });
+    } else {
+        music.pause();
+        button.textContent = "🎵 Play Music";
+    }
+}
+function createFloatingStars() {
+    const container = document.getElementById("stars-container");
+
+    if (!container) return;
+
+    for (let i = 0; i < 20; i++) {
+        const star = document.createElement("span");
+        star.className = "star";
+        star.textContent = "✦";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.animationDelay = Math.random() * 10 + "s";
+        star.style.fontSize = (12 + Math.random() * 18) + "px";
+        container.appendChild(star);
+    }
+}
+
+createFloatingStars();
